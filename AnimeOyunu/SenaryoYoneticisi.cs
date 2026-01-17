@@ -79,26 +79,42 @@ namespace AnimeOyunu
             tersLog.Reverse();//string.Reverse fonksiyonu
 
             return string.Join("\n\n", tersLog);//string.Join fonksiyonu
-        } 
+        }
 
+        // 1. OYUNU KAYDET METODU (GÜNCEL)
         public static void OyunuKaydet()
-
         {
             try
             {
                 if (AktifSahne == null) throw new Exception("Aktif sahne bulunamadı!");
-                File.WriteAllText("kayit.sav", $"{AktifSahne.Id}|{(int)MevcutOlivia}");
+
+                // Klasör yolunu belirle: "Veriler"
+                string klasorYolu = Path.Combine(System.Windows.Forms.Application.StartupPath, "Veriler");
+
+                // Klasör yoksa oluştur (ÇOK ÖNEMLİ!)
+                if (!Directory.Exists(klasorYolu))
+                {
+                    Directory.CreateDirectory(klasorYolu);
+                }
+
+                // Dosyayı klasörün içine kaydet
+                string dosyaYolu = Path.Combine(klasorYolu, "kayit.sav");
+                File.WriteAllText(dosyaYolu, $"{AktifSahne.Id}|{(int)MevcutOlivia}");
             }
             catch (Exception ex) { throw new Exception($"Kayıt hatası: {ex.Message}"); }
         }
 
+        // 2. OYUNU YÜKLE METODU (GÜNCEL)
         public static int OyunuYukle()
         {
             try
             {
-                if (File.Exists("kayit.sav")) //kayıt dosyası olusturdu
+                // Okurken de "Veriler" klasörüne bakıyoruz
+                string dosyaYolu = Path.Combine(System.Windows.Forms.Application.StartupPath, "Veriler", "kayit.sav");
+
+                if (File.Exists(dosyaYolu))
                 {
-                    var d = File.ReadAllText("kayit.sav").Split('|');
+                    var d = File.ReadAllText(dosyaYolu).Split('|');
                     if (d.Length >= 2)
                     {
                         MevcutOlivia = (OliviaState)int.Parse(d[1]);

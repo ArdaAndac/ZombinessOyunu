@@ -210,7 +210,7 @@ namespace AnimeOyunu
                     // Resim yükleme
                     try
                     {
-                        string yol = System.IO.Path.Combine(Application.StartupPath, s.ResimAdi);
+                        string yol = System.IO.Path.Combine(Application.StartupPath, "Gorseller", s.ResimAdi);
                         if (System.IO.File.Exists(yol))
                         {
                             if (pbArkaPlan.Image != null)
@@ -552,16 +552,25 @@ namespace AnimeOyunu
             string mesaj = $"Hata: {ex.Message}\n\nDetay: {ex.StackTrace}";
             MessageBox.Show(mesaj, baslik, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            // Hata logunu dosyaya yaz
+            // Hata logunu "Veriler" klasörüne yaz
             try
             {
-                string logDosyasi = System.IO.Path.Combine(Application.StartupPath, "hata_log.txt");
+                string klasorYolu = System.IO.Path.Combine(Application.StartupPath, "Veriler");
+
+                // Klasör kontrolü (Garanti olsun)
+                if (!System.IO.Directory.Exists(klasorYolu))
+                {
+                    System.IO.Directory.CreateDirectory(klasorYolu);
+                }
+
+                string logDosyasi = System.IO.Path.Combine(klasorYolu, "hata_log.txt");
                 string log = $"[{DateTime.Now}] {baslik}\n{mesaj}\n{new string('-', 80)}\n";
+
                 System.IO.File.AppendAllText(logDosyasi, log);
             }
             catch
             {
-                // Log yazma hatası olsa bile oyun devam etsin
+                // Log yazarken hata alırsak sessizce geç, oyunu bozma.
             }
         }
         // Form1.cs class'ının içine, en alta bu metodu ekle:
