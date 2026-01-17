@@ -7,7 +7,7 @@
 
 > **"Tek bir yanlış karar, herkesin sonunu getirebilir."**
 
-**Zombiless**, C# ve .NET Framework kullanılarak geliştirilmiş, **WinForms** tabanlı, hikaye odaklı bir hayatta kalma (Survival) oyunudur. Standart metin tabanlı oyunların aksine; dinamik görselleştirmeler, **Kelebek Etkisi (Butterfly Effect)** algoritması ve derinlemesine **Karakter İlişki Sistemi** içerir.
+**Zombiness**, C# ve .NET Framework kullanılarak geliştirilmiş, **WinForms** tabanlı, hikaye odaklı bir hayatta kalma (Survival) oyunudur. Standart metin tabanlı oyunların aksine; dinamik görselleştirmeler, **Kelebek Etkisi (Butterfly Effect)** algoritması ve derinlemesine **Karakter İlişki Sistemi** içerir.
 
 ---
 
@@ -50,14 +50,13 @@ Bu proje, bir "Spagetti Kod" yığını değil, **Nesne Yönelimli Programlama (
 
 ## 📸 Ekran Görüntüleri
 
-| Ana Menü | Oyun İçi (Karar Anı) |
+| Başlangıç Ekranı | Karar Anı |
 | :---: | :---: |
-| ![Ana Menü](https://via.placeholder.com/400x225?text=Ana+Menu) | ![Oyun İçi](https://via.placeholder.com/400x225?text=Karar+Ani) |
+| ![Başlangıç](AnimeOyunu/Gorseller/baslangic_sahnesi.png) | ![Karar](AnimeOyunu/Gorseller/sahne3_karar.png) |
 
-| İlişki Sistemi | Boss Savaşı |
+| Savaş Sahnesi | Başarım/İlişki |
 | :---: | :---: |
-| ![İlişki](https://via.placeholder.com/400x225?text=Iliski+Sistemi) | ![Savaş](https://via.placeholder.com/400x225?text=Boss+Savasi) |
-
+| ![Savaş](AnimeOyunu/Gorseller/sahne11_boss_savas.png) | ![Oyun Sonu](AnimeOyunu/Gorseller/final_orman_yolculuk.png) |
 *(Not: Ekran görüntüleri geliştirme aşamasından alınmıştır.)*
 
 ---
@@ -73,7 +72,7 @@ Bu proje **"Tak-Çalıştır"** mantığıyla tasarlanmıştır. Veritabanı kur
 ### Adım Adım Kurulum
 1.  **Depoyu Klonlayın:**
     ```bash
-    git clone [https://github.com/ArdaAndac/Zombiless-RPG.git](https://github.com/ArdaAndac/Zombiless-RPG.git)
+    git clone [https://github.com/ArdaAndac/ZombinessOyunu.git](https://github.com/ArdaAndac/ZombinessOyunu.git)
     ```
 2.  **Projeyi Açın:**
     Klasör içindeki `AnimeOyunu.sln` dosyasına çift tıklayarak Visual Studio'da açın.
@@ -81,8 +80,6 @@ Bu proje **"Tak-Çalıştır"** mantığıyla tasarlanmıştır. Veritabanı kur
     Visual Studio üst menüsündeki **"Start"** (veya F5) tuşuna basın.
 4.  **Hazırsınız!**
     Gerekli veri klasörleri (`/Veriler`) oyun tarafından otomatik oluşturulacaktır.
-
----
 
 ## 🎮 Nasıl Oynanır?
 
@@ -95,7 +92,7 @@ Bu proje **"Tak-Çalıştır"** mantığıyla tasarlanmıştır. Veritabanı kur
 ## 📂 Proje Yapısı
 Zombiness-RPG/
 
-Zombiless-RPG/
+Zombiness-RPG/
 
 ├── AnimeOyunu/
 
